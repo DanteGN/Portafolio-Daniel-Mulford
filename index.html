@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio de Daniel Mulford - Modelador 3D y diseñador de productos digitales">
+    
+    <!-- fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <!-- animación scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="./CSS/style-header.css">
+    <title>Daniel Mulford - Modelador 3D y Diseñador</title>
+</head>
+<body>
+    <!-- header -->
+    <header class="header" data-aos="fade-up">
+        <nav class="nav" aria-label="Navegación principal">
+            <a href="#home" class="nav__link js-scroll-link">home</a>
+            <a href="#portafolio" class="nav__link js-scroll-link">portafolio</a>
+            <a href="#about" class="nav__link js-scroll-link">sobre mi</a>
+            <a href="#contact" class="nav__link js-scroll-link">contáctame</a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- hero -->
+        <section id="home" class="hero" data-aos="fade-up">
+            <div class="hero__content">
+                <h2 class="content__subtitle">Hola, soy Daniel Mulford</h2>
+                <h1 class="content__title">Modelador 3D y diseñador de productos digitales</h1>
+            </div>
+        </section>
+        <!-- portafolio -->
+        <section id="portafolio" class="portafolio" data-aos="fade-up">
+            <h2 class="portfolio__title">Portfolio</h2>
+            <div class="portfolio__grid">
+            <div class="portfolio__item" data-aos="fade-up">
+                <img src="./IMG/TRABAJOS/palomera.png" alt="Portrait" class="portfolio__image">
+            </div>
+            <div class="portfolio__item" data-aos="fade-up">
+                <img src="./IMG/TRABAJOS/modelado-tennis.png" alt="Tennis Racket" class="portfolio__image">
+            </div>
+            <div class="portfolio__item" data-aos="fade-up">
+                <img src="./IMG/TRABAJOS/tentacruel.png" alt="Jellyfish" class="portfolio__image">
+            </div>
+            <div class="portfolio__item" data-aos="fade-up">
+                <img src="./IMG/TRABAJOS/acuarela.png" alt="Cityscape" class="portfolio__image">
+            </div>
+            <div class="portfolio__item" data-aos="fade-up">
+                <img src="./IMG/TRABAJOS/poster-casanare.png" alt="Illustration" class="portfolio__image">
+            </div>
+            <div class="portfolio__item" data-aos="fade-up">
+                <img src="./IMG/TRABAJOS/poster-bombones.png" alt="Stones" class="portfolio__image">
+            </div>
+            </div>
+        </section>
+        <!-- about -->
+        <section id="about" class="about" data-aos="fade-up">
+            <div class="about__content">
+                <h2 class="about__title">Sobre Mi</h2>
+                <div class="about__info">
+                    <p class="info__paragrapgh" data-aos="fade-up">Hola, soy Daniel Mulford, una diseñador gráfica en proceso. Me especializo en la creación de modelado 3D y diseños de productos digitales brindando la mejor experiencia con cada uno de mis clientes dando unos resultados óptimos.
+
+                        Soy de Barranquilla, Atlántico (GMT-5)</p>
+                        <figure class="about__figure" data-aos="fade-up">
+                            <img src="./IMG/FOTOS/Daniel.png" alt="foto de Daniel" class="figure__image">
+                        </figure>
+                </div>
+            </div>
+        </section>
+        <!-- procces -->
+        <section id="process" class="process" data-aos="fade-up">
+            <div class="process__content">
+                <div class="content__info-process">
+                    <h2 class="info-process__title">Proceso de trabajo</h2>
+                    <p class="info-process__paragraph">Aca puedes ver un ejemplo de como se trabajo en un trabajo de modelado y renderizado 3D</p>
+                </div>
+                <video controls class="content__video-process" data-aos="fade-up">
+                    <source src="./IMG/TRABAJOS/proceso-de-modelado-3D.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section>
+        <!-- contact-me -->
+        <section id="contact" class="contact">
+            <div class="contact__container" data-aos="fade-up">
+            <h2 class="contact__title">Contáctame</h2>
+            <form class="contact__form" id="contactForm">
+                <div class="form__field">
+                <label for="name" class="field__label">Nombre</label>
+                <input type="text" id="name" name="name" class="field__input" placeholder="Escribe tu nombre aquí" required>
+                </div>
+                <div class="form__field">
+                <label for="email" class="field__label">Email</label>
+                <input type="email" id="email" name="email" class="field__input" placeholder="example@email.com" required>
+                </div>
+                <div class="form__field">
+                <label for="message" class="field__label">Detalles del pedido</label>
+                <textarea id="message" name="message" class="field__input field__input--textarea" placeholder="Escribe tu pedido aquí..." required></textarea>
+                </div>
+                <button type="submit" class="contact__submit">Enviar</button>
+            </form>
+            </div>
+        </section>
+        <!-- footer -->
+        <footer class="footer" data-aos="fade-up">
+            <h6 class="footer__text">Diseñado por Daniel Mulford</h6>
+        </footer>
+    </main>
+
+    <script>
+        // Función para desplazarse suavemente a la sección seleccionada
+        function smoothScroll(target) {
+            const targetElement = document.getElementById(target.slice(1));
+            targetElement.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    
+        // Agrega un event listener a cada enlace del menú
+        const scrollLinks = document.querySelectorAll('.js-scroll-link');
+        scrollLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const target = event.currentTarget.getAttribute('href');
+                smoothScroll(target);
+            });
+        });
+    
+        // Inicializar AOS
+        AOS.init({
+            duration: 1000, // duración de la animación en ms
+            once: true // solo se reproduce la animación una vez
+        });
+    </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyiamzHkfwpKntKbehTGkyH2WMc9qcus8q74_lgNViIr9TQSxeSTToLoNosQHpc1YjnGg/exec'
+        const form = document.forms['contact']
+
+        form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        });
+    </script>
+</body>
+</html>
