@@ -93,7 +93,7 @@
         <section id="contact" class="contact">
             <div class="contact__container" data-aos="fade-up">
             <h2 class="contact__title">Contáctame</h2>
-            <form class="contact__form" id="contactForm">
+            <form class="contact__form" id="submit-form">
                 <div class="form__field">
                 <label for="name" class="field__label">Nombre</label>
                 <input type="text" id="name" name="name" class="field__input" placeholder="Escribe tu nombre aquí" required>
@@ -142,8 +142,8 @@
         });
     </script>
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyiamzHkfwpKntKbehTGkyH2WMc9qcus8q74_lgNViIr9TQSxeSTToLoNosQHpc1YjnGg/exec'
-        const form = document.forms['contact']
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxEOfgXxYsumqf1Toer0j9mLxX0IscM8Ohnh9AnMNUOnDSDmOPQjdBxtVTWHx_n4Vg1/exec'
+        const form = document.forms['submit-form']
 
         form.addEventListener('submit', e => {
         e.preventDefault()
