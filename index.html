@@ -112,12 +112,37 @@
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxEOfgXxYsumqf1Toer0j9mLxX0IscM8Ohnh9AnMNUOnDSDmOPQjdBxtVTWHx_n4Vg1/exec'
         const form = document.forms['submit-form']
 
-        form.addEventListener('submit', e => {
-        e.preventDefault()
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => console.log('Success!', response))
-            .catch(error => console.error('Error!', error.message))
-        });
+                 // Crear elementos para los mensajes
+                const successMessage = document.createElement('p');
+                const errorMessage = document.createElement('p');
+            
+                // Estilo inicial para los mensajes
+                successMessage.style.color = 'green';
+                errorMessage.style.color = 'red';
+            
+                // Agregar los mensajes al DOM después del formulario
+                form.parentNode.appendChild(successMessage);
+                form.parentNode.appendChild(errorMessage);
+            
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    successMessage.textContent = ''; // Limpiar mensajes previos
+                    errorMessage.textContent = '';
+            
+                    // Enviar datos a Google Apps Script
+                    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                        .then((response) => {
+                            if (response.ok) {
+                                successMessage.textContent = '¡Formulario enviado con éxito!';
+                                form.reset(); // Reiniciar formulario
+                            } else {
+                                throw new Error('Ocurrió un error inesperado');
+                            }
+                        })
+                        .catch((error) => {
+                            errorMessage.textContent = `Error al enviar el formulario: ${error.message}`;
+                        });
+                });
     </script>
             </div>
         </section>
