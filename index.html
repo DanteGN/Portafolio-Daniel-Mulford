@@ -108,6 +108,17 @@
                 </div>
                 <button type="submit" class="contact__submit">Enviar</button>
             </form>
+                <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxEOfgXxYsumqf1Toer0j9mLxX0IscM8Ohnh9AnMNUOnDSDmOPQjdBxtVTWHx_n4Vg1/exec'
+        const form = document.forms['submit-form']
+
+        form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        });
+    </script>
             </div>
         </section>
         <!-- footer -->
@@ -141,16 +152,6 @@
             once: true // solo se reproduce la animación una vez
         });
     </script>
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxEOfgXxYsumqf1Toer0j9mLxX0IscM8Ohnh9AnMNUOnDSDmOPQjdBxtVTWHx_n4Vg1/exec'
-        const form = document.forms['submit-form']
-
-        form.addEventListener('submit', e => {
-        e.preventDefault()
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => console.log('Success!', response))
-            .catch(error => console.error('Error!', error.message))
-        });
-    </script>
+    
 </body>
 </html>
